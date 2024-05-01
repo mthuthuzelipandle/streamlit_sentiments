@@ -27,7 +27,7 @@ def main():
     st.title("Word Cloud and Sentiments")
 
     # Load JSON data
-    with open('wordcloud_data.json', 'r') as file:
+    with open('https://blackpantherprotection.com/finalwordcloud/wordcloud_data.json', 'r') as file:
         data = json.load(file)
 
     display_word_cloud_and_sentiments(data)
