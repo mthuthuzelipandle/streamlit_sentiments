@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+import requests
 
 def display_word_cloud_and_sentiments(data):
     # Display word cloud
@@ -26,11 +27,14 @@ def display_unique_sentiments(entry):
 def main():
     st.title("Word Cloud and Sentiments")
 
-    # Load JSON data
-    with open('https://blackpantherprotection.com/finalwordcloud/wordcloud_data.json', 'r') as file:
-        data = json.load(file)
-
-    display_word_cloud_and_sentiments(data)
+    # Fetch JSON data from URL
+    url = 'https://blackpantherprotection.com/streamlit/wordcloud_data.json'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        display_word_cloud_and_sentiments(data)
+    else:
+        st.error("Failed to fetch data from the provided URL.")
 
 if __name__ == "__main__":
     main()
