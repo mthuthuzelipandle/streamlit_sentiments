@@ -4,7 +4,7 @@ import requests
 
 def display_word_cloud_and_sentiments(data):
     # Display word cloud
-    st.header("Word Cloud")
+    st.header("Word Cloud Mentions in Transcripts Database")
     word_cloud_data = data.get("word_cloud_data", [])
     for entry in word_cloud_data:
         phrase = entry["phrase"]
@@ -25,7 +25,7 @@ def display_unique_sentiments(entry):
             sentiments_set.add(sentiment)
 
 def main():
-    st.title("Word Cloud and Sentiments")
+    st.title("Word Cloud Transcripts")
 
     # Fetch JSON data from URL
     url = 'https://blackpantherprotection.com/streamlit/wordcloud_data.json'
